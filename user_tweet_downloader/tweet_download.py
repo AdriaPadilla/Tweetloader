@@ -2,7 +2,7 @@ from TwitterAPI import TwitterAPI
 import json
 import time
 import os
-import jsons_toxlsx as to_xlsx
+import user_tweet_downloader.jsons_toxlsx as to_xlsx
 
 def tweet_retrieve(user_id, screen_user_name):
 	print("Connecting Twitter API and retrieving Tweets from " + screen_user_name + "  (Please Wait!)")
@@ -14,6 +14,7 @@ def tweet_retrieve(user_id, screen_user_name):
 
 	count_id = 0
 	all_tweets = []
+	jsons = []
 	first_search = True
 
 	while count_id < 3200: # Limit is 3200. 200 is the limit by query.
@@ -39,6 +40,7 @@ def tweet_retrieve(user_id, screen_user_name):
 
 # Now save the json files
 		file_name = screen_user_name+timestr+"_"+str(i)+"_.json"
+		jsons.append(os.path.join(save_path, file_name))
 		with open(os.path.join(save_path, file_name), "w") as write_file:
 			json.dump(json_tweets, write_file, sort_keys=True, indent=4) 
 			print("Response downloaded on: "+timestr2+" | Filename: "+file_name)
@@ -48,6 +50,7 @@ def tweet_retrieve(user_id, screen_user_name):
 		print("Creating " + screen_user_name + ".xlsx (This could take a while...)")
 		to_xlsx.convert_all(save_path, screen_user_name, output_folder)
 		print("Job done!")
+	return jsons
 
 
 ## Twitter KEYS

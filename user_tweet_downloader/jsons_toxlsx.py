@@ -1,6 +1,7 @@
 import json
 import pandas as pd
 import glob
+import os
 
 def get_the_data(file, screen_user_name, all_the_data, output_folder):
 
@@ -89,10 +90,13 @@ def get_the_data(file, screen_user_name, all_the_data, output_folder):
 			})
 
 		# Export Dataframe
-		df.to_excel("output/" + screen_user_name + "/" + screen_user_name + ".xlsx")
+		output_file = os.path.join(output_folder, screen_user_name, screen_user_name + ".xlsx")
+		df.to_excel(output_file)
+		return output_file
+
 
 def convert_all(save_path, screen_user_name, output_folder):
-	json_files = glob.glob(save_path + "*.json")
+	json_files = glob.glob(os.path.join(save_path, "*.json"))
 
 	the_data = {}
 	tweet_date_list = []
@@ -114,10 +118,11 @@ def convert_all(save_path, screen_user_name, output_folder):
 
 
 	for json_file in json_files:
-		get_the_data(json_file, screen_user_name, all_the_data, output_folder)
+		output_file = get_the_data(json_file, screen_user_name, all_the_data, output_folder)
 
 	# When loop ends
 	print("File created: " + screen_user_name + ".xlsx")
+	return output_file
 
 """
 	# Clear all lists and dicts in each loop

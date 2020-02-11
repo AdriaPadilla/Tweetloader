@@ -21,28 +21,11 @@ We can translate this in:
 
 More information about [GET statuses/user_timeline](https://developer.twitter.com/en/docs/tweets/timelines/api-reference/get-statuses-user_timeline "Twitter Developer Documentation")
 
-## Installation
+## Installation (Working on it!)
 
-**Option 1:Pip install**
-
-```Terminal
-...$: pip install user_tweet_downloader
-````
+**Option 1: Pip Install**
 
 **Option 2: Hardcode**
-
-Step 1: Clone this repository in your pc
-```bash
-...$: git clone https://github.com/AdriaPadilla/user_tweet_downloader.git 
-```
-Step 2: Access the main folder
-```
-...$: cd user_tweet_downloader
-```
-Step 3: Execute install
-```
-...$: /user_tweet_downloader/python3 setup.py install
-```
 
 ## How To Use
 

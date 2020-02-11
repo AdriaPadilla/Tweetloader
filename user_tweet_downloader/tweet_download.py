@@ -55,10 +55,10 @@ def tweet_retrieve(user_id, screen_user_name):
 
 ## Twitter KEYS
 
-consumer_key = "API KEY"
-consumer_secret = "API SECRET KEY"
-access_token_key = "ACCESS TOKEN"
-access_token_secret = "ACCESS SECRET TOKEN"
+consumer_key = ""
+consumer_secret = ""
+access_token_key = ""
+access_token_secret = ""
 
 api = TwitterAPI(consumer_key, consumer_secret, access_token_key, access_token_secret)
 

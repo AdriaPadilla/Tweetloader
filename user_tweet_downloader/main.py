@@ -1,8 +1,9 @@
-import tweet_download as td
+import user_tweet_downloader.tweet_download as td
 import argparse
 
-# usernames = ['adriapadilla'] # The visual user name in twitter
-# user_ids = ['72066060'] # The user ID (You can use this: http://gettwitterid.com/)
+# Usernames = ['adriapadilla'] # The visual user name in twitter
+# User_ids = ['72066060'] # The user ID (You can use this: http://gettwitterid.com/)
+# Example: python3 -m user_tweet_downloader.main --username adriapadilla --id 72066060
 
 # Important: Rate limit for  GET statuses/user_timeline is limited to 1800 request for a 15 min. window.
 # You Can use as a list of users to capture. Put user_ids and Usernames in same order, separated by comas.

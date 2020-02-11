@@ -1,6 +1,5 @@
 import setuptools
 
-
 setuptools.setup(name='user_tweet_downloader',
       version="1.0.0",
       url = "https://github.com/AdriaPadilla/user_tweet_downloader", 

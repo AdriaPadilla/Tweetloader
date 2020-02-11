@@ -4,7 +4,7 @@
 
 This script will download the 3.200 most recent tweets of any Twitter public account.
 
-### Limitations 
+### Twitter API Limitations 
 
 **Particular** ***"GET statuses/user_timeline"*** **method limitations:**
 
@@ -20,4 +20,8 @@ We can translate this in:
 * 93 user accounts in a 15 min window. (16 requests are needed to reach the 3.200 most recent tweets for each user).
 
 More information about [GET statuses/user_timeline](https://developer.twitter.com/en/docs/tweets/timelines/api-reference/get-statuses-user_timeline "Twitter Developer Documentation")
+
+## Installation
+
+## How To Use
 

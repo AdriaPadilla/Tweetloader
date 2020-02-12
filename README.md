@@ -107,10 +107,8 @@ If you have a big bunch of accounts to scrape, command line can be very annoying
 
 Steps:
 1. Go to the installation folder
-2. find users_lits.py
+2. find main.py
 3. Follow the instructions in the head of the file
-
-In **users_list.py** you can place a large list of user_names and user_id's to make big queries. 
 
 To execute the querie, just run main.py:
 

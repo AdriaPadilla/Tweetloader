@@ -3,6 +3,7 @@ import json
 import time
 import os
 import user_tweet_downloader.jsons_toxlsx as to_xlsx
+import user_tweet_downloader.constants as cs
 
 def tweet_retrieve(user_id, screen_user_name):
 	print("Connecting Twitter API and retrieving Tweets from " + screen_user_name + "  (Please Wait!)")
@@ -55,10 +56,13 @@ def tweet_retrieve(user_id, screen_user_name):
 
 ## Twitter KEYS
 
-consumer_key = ""
-consumer_secret = ""
-access_token_key = ""
-access_token_secret = ""
+if not cs.CONSUMER_KEY or not cs.CONSUMER_SECRET or not cs.ACCESS_TOKEN_KEY or not cs.ACCESS_TOKEN_SECRET:
+    raise ValueError("Plase go constants.py and check your Twitter API credentials")
+
+consumer_key = cs.CONSUMER_KEY
+consumer_secret = cs.CONSUMER_SECRET
+access_token_key = cs.ACCESS_TOKEN_KEY
+access_token_secret = cs.ACCESS_TOKEN_SECRET
 
 api = TwitterAPI(consumer_key, consumer_secret, access_token_key, access_token_secret)
 

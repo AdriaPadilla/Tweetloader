@@ -11,7 +11,7 @@ import argparse
 user_ids = []
 usernames = []
 
-def retrieve_info(user_ids, usernames):
+def retrieve_info(userid, username):
     for userid, username in zip(user_ids, usernames):
         td.tweet_retrieve(userid, username)
 

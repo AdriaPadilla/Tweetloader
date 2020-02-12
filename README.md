@@ -113,7 +113,7 @@ Steps:
 To execute the querie, just run main.py:
 
 ```bash
-.../your_path_to/user_tweet_downloader/$: pithon3 main.py
+.../your_path_to/user_tweet_downloader/$: python3 main.py
 ```
 
 **Note: Follow the same order placing user_IDS and user_Names... Must be in the same order**

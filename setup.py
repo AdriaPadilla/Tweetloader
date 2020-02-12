@@ -1,7 +1,7 @@
 import setuptools
 
 setuptools.setup(name='user_tweet_downloader',
-      version="1.0.2",
+      version="1.1.0",
       url = "https://github.com/AdriaPadilla/user_tweet_downloader", 
       description='Download the 3.200 most recent tweets of any Twitter public account',
       author='Adrian Padilla',

@@ -21,9 +21,9 @@ We can translate this in:
 
 More information about [GET statuses/user_timeline](https://developer.twitter.com/en/docs/tweets/timelines/api-reference/get-statuses-user_timeline "Twitter Developer Documentation")
 
-## 3. Installation (Working on it!)
+## 3. Installation
 
-**Option 1:Pip install**
+**Option 1: Pip install**
 
 ```Terminal
 ...$: pip install user_tweet_downloader
@@ -32,21 +32,27 @@ More information about [GET statuses/user_timeline](https://developer.twitter.co
 **Option 2: Hardcode**
 
 Step 1: Clone this repository in your pc
+
 ```bash
 ...$: git clone https://github.com/AdriaPadilla/user_tweet_downloader.git 
 ```
+
 Step 2: Access the main folder
 ```
 ...$: cd user_tweet_downloader
 ```
+
 Step 3: Execute install
+
 ```
 .../user_tweet_downloader/$: python3 setup.py install
 
 ```
+
 ### 3.1. Configuration ###
 
 To use this applications, you'll need Twitter API credentials: 
+
 
 1. Go to: https://developer.twitter.com/ 
 2. Create a new account.
@@ -58,14 +64,19 @@ For each "app" you create, you'll get 4 keys: Consumer Key, Consumer Secret Key,
 
 Open "constants.py" and place your credentials between " ":
 
+```bash
 CONSUMER_KEY = ""
 CONSUMER_SECRET = ""
 ACCESS_TOKEN_KEY = ""
 ACCESS_TOKEN_SECRET = ""
+```
 
 ### 3.2. Command instructions ###
 
-user_tweet_downloader works with "argparse". To start a capture you'll need: the visible "username" and the "user id". F.e.: my twitter visible username is "adriapadilla" and my user id is "tt1520211". You can find the user's id using this tool: http://gettwitterid.com/
+user_tweet_downloader works with "argparse". To start a capture you'll need: the visible "username" and the "user id". 
+
+F.e.: my twitter visible username is "adriapadilla" and my user id is "tt1520211". You can find the user's id using this tool: http://gettwitterid.com/
+
 
 In your terminal:
 ```bash
@@ -86,7 +97,11 @@ The same with a list of users:
 
 ***important: You have to follow the same order in user_names and users_id. The second User_ID must match with the second User_name.***
 
+
+
 ### 3.3. Hardcode use (Method for big queries) ###
+
+
 
 If you have a big bunch of accounts to scrape, command line can be very annoying. Please, use this method:
 
@@ -95,7 +110,7 @@ Steps:
 2. find users_lits.py
 3. Follow the instructions in the head of the file
 
-In users_list.py you can place a large list of user_names and user_id's to make big queries. 
+In **users_list.py** you can place a large list of user_names and user_id's to make big queries. 
 
 To execute the querie, just run main.py:
 
@@ -103,8 +118,12 @@ To execute the querie, just run main.py:
 .../your_path_to/user_tweet_downloader/$: pithon3 main.py
 ```
 
+***Note: Follow the same order placing user_IDS and user_Names... Must be in the same order ***
+
+
 ### 3.3. The Output ###
 
 The application will create a new folder named "output", and a new subfolder for each user you want to capture. In this subfolder you'll find:
+
 + All Twitter API's responde in .json format
 + One .xlsx format file with data

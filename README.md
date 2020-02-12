@@ -71,49 +71,22 @@ ACCESS_TOKEN_KEY = ""
 ACCESS_TOKEN_SECRET = ""
 ```
 
-### 3.2. Command instructions ###
-
-user_tweet_downloader works with "argparse". To start a capture you'll need: the visible "username" and the "user id". 
-
-F.e.: my twitter visible username is "adriapadilla" and my user id is "tt1520211". You can find the user's id using this tool: http://gettwitterid.com/
-
-
-In your terminal:
-```bash
-...$: python3 -m user_tweet_downloader.main --name userame --id user_id
-
-```
-f.e.:
-```bash
-...$: python3 -m user_tweet_downloader.main --name adriapadilla --id 72066060
-```
-
-This will capture the latest 3200 tweets from my personal account
-
-The same with a list of users:
-```bash
-...$: python3 -m user_tweet_downloader.main --name adriapadilla username_2  etc --id 72066060 user_id_2 etc
-```
-
-***important: You have to follow the same order in user_names and users_id. The second User_ID must match with the second User_name.***
-
-
-
-### 3.3. Hardcode use (Method for big queries) ###
-
-
+### 3.2. Hardcode use (Method for big queries) ###
 
 If you have a big bunch of accounts to scrape, command line can be very annoying. Please, use this method:
 
 Steps:
 1. Go to the installation folder
-2. find main.py
+2. find accounts.py
 3. Follow the instructions in the head of the file
 
-To execute the querie, just run main.py:
+To execute, just run main.py:
 
 ```bash
 .../your_path_to/user_tweet_downloader/$: python3 main.py
+```
+```bash
+.../no_matter_where_you_are/$: python3 -m user_tweet_downloader.main
 ```
 
 **Note: Follow the same order placing user_IDS and user_Names... Must be in the same order**

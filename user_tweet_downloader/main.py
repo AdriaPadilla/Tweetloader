@@ -1,5 +1,6 @@
-import user_tweet_downloader.tweet_download as td
 import argparse
+import user_tweet_downloader.tweet_download as td
+import user_tweet_downloader.users_list as us
 
 # Usernames = ['adriapadilla'] # The visual user name in twitter
 # User_ids = ['72066060'] # The user ID (You can use this: http://gettwitterid.com/)
@@ -8,8 +9,8 @@ import argparse
 # Important: Rate limit for  GET statuses/user_timeline is limited to 1800 request for a 15 min. window.
 # You Can use as a list of users to capture. Put user_ids and Usernames in same order, separated by comas.
 
-user_ids = []
-usernames = []
+user_ids = us.IDS
+usernames = us.USERS
 
 def retrieve_info(userid, username):
     for userid, username in zip(user_ids, usernames):

@@ -1,5 +1,7 @@
 # User Timeline Downloader
 
+Version 1.2.2
+
 ## 1. What is this about?
 
 This script will download the 3.200 most recent tweets of any Twitter public account.

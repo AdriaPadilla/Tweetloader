@@ -1,11 +1,16 @@
 import user_tweet_downloader.tweet_download as td
 import user_tweet_downloader.accounts as ac
 
-user_ids = ac.IDS
-usernames = ac.USERS
+users = ac.USERS
+
+def main(users):
+	print(users)
+	for user in users:
+		output_file = td.tweet_retrieve(user)
+		return output_file
+
 
 if __name__ == "__main__":
-    for userid, username in zip(user_ids, usernames):
-        td.tweet_retrieve(userid, username)
+    main(users)
 
 

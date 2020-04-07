@@ -3,7 +3,7 @@ import pandas as pd
 import glob
 import os
 
-def get_the_data(file, screen_user_name, all_the_data, output_folder):
+def get_the_data(file, user, all_the_data, save_path):
 
 	the_data, tweet_date_list, tweet_text_list, tweet_retweet_count_list, fav_count_list, is_media_list, is_reply_list, hashtags_list_glob, mentions_list_glob, original_tweet_list, media_type_list = all_the_data
 
@@ -90,12 +90,12 @@ def get_the_data(file, screen_user_name, all_the_data, output_folder):
 			})
 
 		# Export Dataframe
-		output_file = os.path.join(output_folder, screen_user_name, screen_user_name + ".xlsx")
+		output_file = os.path.join(save_path, user + ".xlsx")
 		df.to_excel(output_file)
 		return output_file
 
 
-def convert_all(save_path, screen_user_name, output_folder):
+def convert_all(save_path, user):
 	json_files = glob.glob(os.path.join(save_path, "*.json"))
 
 	the_data = {}
@@ -118,10 +118,10 @@ def convert_all(save_path, screen_user_name, output_folder):
 
 
 	for json_file in json_files:
-		output_file = get_the_data(json_file, screen_user_name, all_the_data, output_folder)
+		output_file = get_the_data(json_file, user, all_the_data, save_path)
 
 	# When loop ends
-	print("File created: " + screen_user_name + ".xlsx")
+	print("File created: " + user + ".xlsx")
 	return output_file
 
 """

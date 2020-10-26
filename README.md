@@ -1,7 +1,6 @@
-# Tweetloader
+# Tweetloader [V2]
 
-Version 2
-Citation APA Style: Padilla Molina, Adrian (2020). Tweetloader (Version 2) [Software]. Avaliable from: https://github.com/AdriaPadilla/Tweetloader
+*Citation APA Style: Padilla Molina, Adrian (2020). Tweetloader (Version 2) [Software]. Avaliable from: https://github.com/AdriaPadilla/Tweetloader*
 
 #### Critical Dependencies
 ```bash

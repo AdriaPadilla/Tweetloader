@@ -17,6 +17,17 @@ json, glob, os, time, argparse, textwrap
 
 This script will download the 3.200 most recent tweets of any Twitter public account.
 
+### Data collected (columns in the final dataset) ###
+- "Tweet Date" for each tweet
+- "Retweet count" for each tweet
+- "fav count" for each tweet
+- "If tweet is a reply": username from users involved in conversation
+- "if hashatags in the tweet": a list of hashtags for each tweet
+- "mentions": inside for each tweet
+- "Tweet": text
+- media in the tweet
+- if it's reply, the date from the original tweet
+
 ## 2. Twitter API Limitations 
 
 **Particular** ***"GET statuses/user_timeline"*** **method limitations:**

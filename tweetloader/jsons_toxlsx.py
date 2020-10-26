@@ -2,8 +2,9 @@ import json
 import pandas as pd
 import glob
 import os
+import time
 
-def get_the_data(file, user, all_the_data, save_path):
+def get_the_data(file, user, all_the_data):
 
 	the_data, tweet_date_list, tweet_text_list, tweet_retweet_count_list, fav_count_list, is_media_list, is_reply_list, hashtags_list_glob, mentions_list_glob, original_tweet_list, media_type_list = all_the_data
 
@@ -90,12 +91,15 @@ def get_the_data(file, user, all_the_data, save_path):
 			})
 
 		# Export Dataframe
-		output_file = os.path.join(save_path, user + ".xlsx")
+		timestr2 = time.strftime("%Y-%m-%d")
+		output_file = os.path.join("outputs/"+user, user+"-"+timestr2+".xlsx")
 		df.to_excel(output_file)
-		return output_file
+		return df
 
+def convert_all(user, j):
 
-def convert_all(save_path, user):
+	output_folder = "outputs/"
+	save_path = os.path.join(output_folder, str(user))
 	json_files = glob.glob(os.path.join(save_path, "*.json"))
 
 	the_data = {}
@@ -116,25 +120,14 @@ def convert_all(save_path, user):
 					mentions_list_glob, original_tweet_list, media_type_list
 					]
 
-
 	for json_file in json_files:
-		output_file = get_the_data(json_file, user, all_the_data, save_path)
+		user_dataset = get_the_data(json_file, user, all_the_data)
+		if j == True:
+			os.remove(json_file)
+		else:
+			pass
+
+	return user_dataset
 
 	# When loop ends
 	print("File created: " + user + ".xlsx")
-	return output_file
-
-"""
-	# Clear all lists and dicts in each loop
-	the_data.clear()
-	tweet_date_list.clear()
-	tweet_text_list.clear()
-	tweet_retweet_count_list.clear()
-	fav_count_list.clear()
-	is_media_list.clear()
-	is_reply_list.clear()
-	hashtags_list_glob.clear()
-	mentions_list_glob.clear()
-	original_tweet_list.clear()
-	media_type_list.clear()
-"""

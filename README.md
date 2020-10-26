@@ -1,6 +1,17 @@
-# User Timeline Downloader
+# Tweetloader
 
-Version 1.2.2
+Version 2
+
+#### Critical Dependencies
+```bash
+- pip install pandas
+- pip install openpyxl
+- pip install TwitterAPI
+```
+#### Also needed Dependencies
+```bash
+json, glob, os, time, argparse, textwrap
+```
 
 ## 1. What is this about?
 
@@ -25,31 +36,13 @@ More information about [GET statuses/user_timeline](https://developer.twitter.co
 
 ## 3. Installation
 
-**Option 1: Pip install**
+**Step 1: Download Tweetloader to your computer**
 
 ```Terminal
-...$: pip install user_tweet_downloader
+...$: git clone https://github.com/AdriaPadilla/Tweetloader.git
 ````
 
-**Option 2: Hardcode**
-
-Step 1: Clone this repository in your pc
-
-```bash
-...$: git clone https://github.com/AdriaPadilla/user_tweet_downloader.git 
-```
-
-Step 2: Access the main folder
-```
-...$: cd user_tweet_downloader
-```
-
-Step 3: Execute install
-
-```
-.../user_tweet_downloader/$: python3 setup.py install
-
-```
+**If you don't have "git" installed. Download zip package, then unzip the package in a desired folder**
 
 ### 3.1. Configuration ###
 
@@ -73,30 +66,48 @@ ACCESS_TOKEN_KEY = ""
 ACCESS_TOKEN_SECRET = ""
 ```
 
-### 3.2. Hardcode use (Method for big queries) ###
+### 3.2. Usage ###
 
-If you have a big bunch of accounts to scrape, command line can be very annoying. Please, use this method:
+This is a terminal execution software. You have to use arguments to start the process. Read the following lines.
 
-Steps:
+**Step 1: Open your windows/mac/linux terminal**
+
 1. Go to the installation folder
-2. find accounts.py
-3. Follow the instructions in the head of the file
+2. Ho to make a query
 
-To execute, just run main.py:
+#### Commands ####
 
+##### Mandatory commands #####
 ```bash
-.../your_path_to/user_tweet_downloader/$: python3 main.py
+-- u username (or a list)
 ```
+F.e: This command will download the latest 3200 tweets from my personal account
 ```bash
-.../no_matter_where_you_are/$: python3 -m user_tweet_downloader.main
+python main.py -u adriapadilla
+```
+You can also input a list of users, one after the other, without using commas. Only separated by a space:
+```bash
+python main.py -u adriapadilla anotheruser anotheruser etc etc
 ```
 
-**Note: Follow the same order placing user_IDS and user_Names... Must be in the same order**
+##### Non-mandatory commands #####
+```bash
+-c [To create a single DataSet with all defined users. Disabled by default]
+-j [To Preserve original JSON files from API Response. Deleted by default]
+```
 
+F.e: this command will:
+- download the latest 3200 tweets from the desired accounts.
+- create a single dataset with all tweets.
+- preserve in your computer all Twitter API responses in JSON format.
+```bash
+python main.py --u uername1 username2 username3 -c -j
+```
 
 ### 3.3. The Output ###
 
 The application will create a new folder named "output", and a new subfolder for each user you want to capture. In this subfolder you'll find:
 
-+ All Twitter API's responde in .json format
-+ One .xlsx format file with data
++ All Twitter API's responde in .json format.
++ One .xlsx format file with data.
++ If you use -c argument, you'll also have a single dataset with all accounts data.

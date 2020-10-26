@@ -2,16 +2,16 @@ from TwitterAPI import TwitterAPI
 import json
 import time
 import os
-import user_tweet_downloader.jsons_toxlsx as to_xlsx
-import user_tweet_downloader.constants as cs
+import jsons_toxlsx as to_xlsx
+import constants as cs
 
-def tweet_retrieve(user):
+def tweet_retrieve(user, j):
 	print("Connecting Twitter API and retrieving Tweets from " + str(user) + "  (Please Wait!)")
 
 	timestr2 = time.strftime("%Y-%m-%d-%H-%M-%S") # Get the time to know when is executed
 
-	output_folder = "outputs/user_tweet_downloader/"
-	save_path = os.path.join(output_folder, str(user)+"--"+timestr2)
+	output_folder = "outputs/"
+	save_path = os.path.join(output_folder, str(user))
 
 	if not os.path.exists(save_path):
 		os.makedirs(save_path)
@@ -39,26 +39,23 @@ def tweet_retrieve(user):
 		else:
 			json_tweets = json_tweets[1:]
 		
-# Now save the json files
+	# Now save the json files
 		file_name = user+"_"+str(i)+"_.json"
 		jsons.append(os.path.join(save_path, file_name))
 		with open(os.path.join(save_path, file_name), "w") as write_file:
-			json.dump(json_tweets, write_file, sort_keys=True, indent=4) 
-			print("Response downloaded on: "+timestr2+" | Filename: "+file_name)
+			json.dump(json_tweets, write_file, sort_keys=True, indent=4)
 
-# Import json to xlsx conversion script
+	# Import json to xlsx conversion script
 	if count_id == 3200:
 		print("Creating " + user + ".xlsx (This could take a while...)")
-		output_file = to_xlsx.convert_all(save_path, user)
+		user_frame = to_xlsx.convert_all(user, j)
 		print("Job done!")
-		return output_file
-	return jsons
-
+		return user_frame
 
 ## Twitter KEYS
 
 if not cs.CONSUMER_KEY or not cs.CONSUMER_SECRET or not cs.ACCESS_TOKEN_KEY or not cs.ACCESS_TOKEN_SECRET:
-    raise ValueError("Plase go constants.py and check your Twitter API credentials")
+	raise ValueError("Plase go constants.py and check your Twitter API credentials")
 
 consumer_key = cs.CONSUMER_KEY
 consumer_secret = cs.CONSUMER_SECRET
@@ -66,5 +63,3 @@ access_token_key = cs.ACCESS_TOKEN_KEY
 access_token_secret = cs.ACCESS_TOKEN_SECRET
 
 api = TwitterAPI(consumer_key, consumer_secret, access_token_key, access_token_secret)
-
-
